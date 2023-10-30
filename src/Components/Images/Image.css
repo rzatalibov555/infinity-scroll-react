@@ -1,0 +1,44 @@
+/*infinite-scroll-component to install:  https://www.npmjs.com/package/react-infinite-scroll-component */
+/*Image API: https://picsum.photos/v2/list */
+/*infinite-scroll custom format if dont want use component: https://blog.logrocket.com/3-ways-implement-infinite-scroll-react/ */
+/*For blur image before load images:  npm install react-lazyload */
+
+.image{
+    width: 500px;
+    height: 400px;
+    /* background: red; */
+    float: left;
+
+    position: relative;
+    margin: 5px 0px; 
+}
+
+.image img{
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    float: left;
+}
+
+.pr{
+    width: 100%;
+    height: 100px;
+    background: lightgray;
+    opacity: 0.7;
+
+    position: absolute;
+    bottom: 0px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.pr button{
+    width: 250px;
+    height: 50px;
+    background: blueviolet;
+    color: white;
+    font-size: 20px;
+}
