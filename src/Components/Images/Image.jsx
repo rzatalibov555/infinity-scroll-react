@@ -68,7 +68,7 @@ function Image() {
             a.download = 'image.jpg'; // You can set the filename here
             a.click();
             window.URL.revokeObjectURL(url); //destroy link
-            console.log(window.URL.revokeObjectURL(url));
+            // console.log(window.URL.revokeObjectURL(url));
           });
       };
 
