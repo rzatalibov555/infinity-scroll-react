@@ -1,16 +1,4 @@
-import './Image.css'
-import InfiniteScroll from "react-infinite-scroll-component";
-import { useState, fetchMoreData, useEffect } from 'react';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
-
-// import { fetchMoreData } from 'react';
-
-
-
-
-function Image() {
-
-    // const [todo, setTodos ] = useState({
+  // const [todo, setTodos ] = useState({
     //     items: Array.from({ length: 3 })
     // });
 
@@ -26,6 +14,22 @@ function Image() {
     //         }, 1500);
     //     };
     // }
+
+// import { fetchMoreData } from 'react';
+
+import './Image.css'
+import InfiniteScroll from "react-infinite-scroll-component";
+import { useState, fetchMoreData, useEffect } from 'react';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+
+
+
+
+
+
+function Image() {
+
+  
 
     const [todos, setTodos] = useState([]);
     const [page, setPage] = useState(1);
@@ -50,6 +54,28 @@ function Image() {
         fetchMoreData();
     }, []); // Fetch data when the component mounts
 
+    // Sekili yuklemek ucun START ========================================
+    const downloadImage = (url) => {
+          
+        fetch(url)
+          .then((response) => response.blob())
+          .then((blob) => {
+             
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+
+            a.href = url;
+            a.download = 'image.jpg'; // You can set the filename here
+            a.click();
+            window.URL.revokeObjectURL(url); //destroy link
+            console.log(window.URL.revokeObjectURL(url));
+          });
+      };
+
+
+    // Sekili yuklemek ucun END ========================================
+
+
 
     return (
 
@@ -69,7 +95,7 @@ function Image() {
                         {/* </LazyLoadImage> */}
 
                         <div className='pr'>
-                            <button type='button'>Download</button>
+                            <button type='button' onClick={() => downloadImage(item.download_url)}>Download</button>
                         </div>
 
                     </div>
